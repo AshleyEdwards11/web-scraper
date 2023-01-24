@@ -1,0 +1,19 @@
+import requests
+from bs4 import BeautifulSoup
+
+# specify the website to scrape
+url = 'https://www.example.com'
+
+# send a request to the website and retrieve the source code
+response = requests.get(url)
+html = response.content
+
+# parse the source code using BeautifulSoup
+soup = BeautifulSoup(html, 'html.parser')
+
+# find all elements with a specific class
+data = soup.find_all(class_='example-class')
+
+# print the data
+for item in data:
+    print(item.text)
